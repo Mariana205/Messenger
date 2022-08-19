@@ -1,0 +1,56 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+.wrapper-input-message {
+    padding: 40px 0;
+    height: 10vh;
+    position: fixed;
+    width: 70%;
+    bottom: 0;
+    display: flex;
+    border-top: 2px solid rgb(238, 232, 232);
+    background-color: rgb(243, 243, 243);
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.message-input-container {
+    min-height: 5vh;
+    min-width: 90%;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.message-input {
+    flex: 1;
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 12px 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.message-input:focus {
+    outline: none;
+}
+
+.send-message {
+    padding: 0;
+    height: 0px;
+    color: grey;
+    font-size: 1.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.bi.bi-send {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    right: 1rem;
+    padding: 0 10px;
+}
