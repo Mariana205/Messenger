@@ -2,7 +2,7 @@
     background-color: rgb(243, 243, 243);
     min-height: 20vh;
     border-bottom: 2px solid rgb(238, 232, 232);
-    width: 30%;
+    width: 20%;
     position: fixed;
 }
 
@@ -96,7 +96,7 @@
 .contact-item {
     display: flex;
     border-bottom: 2px solid rgb(238, 232, 232);
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     justify-content: space-between;
     width: 100%;
 }
@@ -124,10 +124,43 @@
     color: #333;
 }
 
-
 @media screen and (max-height: 700px) {
     .container-contact-list {
         overflow: scroll;
         height: 100%;
     }
+}
+
+@media only screen and (max-width: 1335px) {
+    .contact-list-date {
+        display: none;
+    }
+
+    .contact-item {
+        display: flex;
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+
+    .preview-message {
+        display: none;
+    }
+
+    .contact-item {
+        padding: 0 5px;
+    }
+}
+
+
+@media only screen and (max-width: 666px) {
+
+    .name-contact,
+    .form-search,
+    .bi.bi-search,
+    .contact-list-title {
+        display: none;
+    }
+
 }

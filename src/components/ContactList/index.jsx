@@ -41,7 +41,7 @@ function ContactList({ user }) {
                                 <Link to={`/user/${item.id}`} style={{ textDecoration: 'none' }} className="contact-item">
                                     <div className='contact'>
                                         <div className='contact-item-photo'>
-                                            <img className='photo-contact' src={item.photo} />
+                                            <img className='photo-contact' src={item.photo} alt={item.name}/>
                                             <i className="bi bi-check-circle icon-contact-list" />
                                         </div>
                                         <div>

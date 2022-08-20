@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMessages } from '../../hooks/useMessages';
+import dateFormat from "dateformat";
 import './styles.css';
 
-function MessageList({user}) {
-    const messages = useMessages();
+function MessageList({ user }) {
+    const messages = useMessages(user.id);
 
     const containerRef = React.useRef(null);
 
@@ -16,27 +17,30 @@ function MessageList({user}) {
     return (
         <div className="message-list-container" ref={containerRef}>
             <ul className="message-list">
-                {messages.map((x) => (
-                    <Message key={x.id} message={x} isOwnMessage={x.text.length % 2 === 0} currentUser={user} />
+                {messages.map((m) => (
+                    <Message key={m.id} message={m} isOwnMessage={m.from === 'me'} user={user} />
                 ))}
             </ul>
         </div>
     );
 }
 
-function Message({ message, isOwnMessage, currentUser }) {
+function Message({ message, isOwnMessage, user }) {
     const { text, timestamp } = message;
-    const date = new Date(timestamp * 1000);
+    const date = (new Date(timestamp));
+    const dateFormatted = dateFormat(date, "m/d/yy, h:MM TT");
+
+    // mmm d, yyyy
 
     if (!isOwnMessage) {
         return (
             <div className='message-item'>
-                <img className={!isOwnMessage && 'photo-contact'} src={currentUser.photo} alt={currentUser.name}/>
+                <img className={!isOwnMessage && 'photo-contact'} src={user.photo} alt={user.name} />
                 <div>
                     <li className={['message', isOwnMessage && 'own-message'].join(' ')} >
                         <div>{text}</div>
                     </li >
-                    <div className='message-date'>{date.toLocaleString()}</div>
+                    <div className='message-date'>{dateFormatted}</div>
                 </div>
             </div>
         );
@@ -44,11 +48,10 @@ function Message({ message, isOwnMessage, currentUser }) {
     else {
         return (
             <>
-                <li className={['message', isOwnMessage && 'own-message'].join(' ')} >
+                <li className='message own-message' >
                     <div>{text}</div>
                 </li >
-                <div className='own-message message-date'>{date.toLocaleString()}</div>
-
+                <div className='own-message message-date'>{dateFormatted}</div>
             </>
         );
     }

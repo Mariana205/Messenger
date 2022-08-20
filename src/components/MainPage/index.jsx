@@ -4,6 +4,7 @@ import { MessageList } from '../MessageList';
 import { Contact } from '../Contact';
 import { ContactList } from '../ContactList'
 import { Users } from '../../users';
+import { ToastContainer } from 'react-toastify';
 
 import './styles.css';
 
@@ -11,10 +12,7 @@ function MainPage() {
     const params = useParams();
 
     const user = Users.find((x) => x.id.toString() === params.id);
-    if (!user) {
-        // TODO: 404
-    }
-
+    
     return (
         <div className='wrapper-messages-page'>
             <div className='left-container'>
@@ -27,11 +25,11 @@ function MainPage() {
                         <div className="messages-container" >
                             <Contact user={user} />
                             <MessageList user={user} />
-                            <MessageInput />
+                            <MessageInput user={user} />
                         </div>
                     )
             }
-
+            <ToastContainer />
 
         </div >
     );

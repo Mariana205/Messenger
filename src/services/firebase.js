@@ -26,25 +26,26 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 function getTimestampInSeconds() {
-    return Math.floor(Date.now() / 1000)
+    return Math.floor(Date.now())
 }
 
-async function sendMessage(text) {
+async function sendMessage(text, id, from) {
     try {
         const timestamp = getTimestampInSeconds();
-        await addDoc(collection(db, 'a-chat-rooms'), {
+        await addDoc(collection(db, 'a-chat-rooms', id.toString(), 'messages'), {
             text: text.trim(),
             timestamp: timestamp,
+            from: from
         });
     } catch (error) {
         console.error(error);
     }
 }
 
-function getMessages(callback) {
+function getMessages(id, callback) {
     return onSnapshot(
         query(
-            collection(db, 'a-chat-rooms'),
+            collection(db, 'a-chat-rooms', id.toString(), 'messages'),
             orderBy('timestamp', 'asc')
         ),
         (querySnapshot) => {

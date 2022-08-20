@@ -4,11 +4,12 @@
 }
 
 .left-container {
-    width: 30%;
+    width: 20%;
     height: 100vh;
     border-right: 2px solid rgb(238, 232, 232);
 }
 
 .messages-container {
     flex-grow: 1;
+    width: 80%;
 }

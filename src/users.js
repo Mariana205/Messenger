@@ -20,7 +20,7 @@ export const Users = [{
     },
     {
         'id': 5,
-        'name': 'Kutasya',
+        'name': 'My cat',
         'photo': 'https://i.postimg.cc/Kcb5scnL/photo-2022-08-18-12-13-44.jpg'
     }
 ]

@@ -4,7 +4,7 @@
     padding: 40px 0;
     height: 10vh;
     position: fixed;
-    width: 70%;
+    width: 80%;
     bottom: 0;
     display: flex;
     border-top: 2px solid rgb(238, 232, 232);
@@ -53,4 +53,9 @@
     align-items: center;
     right: 1rem;
     padding: 0 10px;
+}
+
+.notify-title {
+    margin: 0 auto;
+    color: black;
 }
