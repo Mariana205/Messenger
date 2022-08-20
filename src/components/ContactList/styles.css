@@ -1,73 +1,27 @@
-.container-contact-list {
-    /* padding: 20px; */
-}
-
-.contact-list-title {
-    font-weight: 400;
-    color: rgb(60, 163, 248);
-    padding-top: 20px;
-    padding-left: 20px;
-
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-item {
-    display: flex;
-    border-bottom: 2px solid rgb(238, 232, 232);
-    padding: 0 20px 0 20px;
-    justify-content: space-between;
-}
-
-.contact{
-    display: flex;
-}
-
-.name-contact {
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 0;
-}
-
-.preview-message {
-    color: gray;
-    margin-top: 5px;
-}
-
-.icon {
-    margin-top: 30px;
-}
-
-.contact-list-date {
-    height: 5px;
-    font-size: .8rem;
-    display: flex;
-    margin-top: 25px;
-    color: #333;
-}
-
 .search-container {
     background-color: rgb(243, 243, 243);
-    height: 20vh;
+    min-height: 20vh;
     border-bottom: 2px solid rgb(238, 232, 232);
+    width: 30%;
+    position: fixed;
 }
 
 .bi.bi-person-circle {
     font-size: 2.5rem;
     color: gray;
-    position: relative;
     margin: 20px;
 }
 
 .user-icon {
-    margin: 10px 0 0 -60px;
+    position: absolute;
+    color: rgb(41, 207, 41);
+    font-size: 1.1rem;
+    left: 3rem;
+    top: 2rem;
 }
 
 .container-form {
-    height: 10vh;
+    margin-top: 4vh;
     display: flex;
     align-items: center;
 }
@@ -104,4 +58,76 @@
 
 .no-contact {
     margin-left: 20px;
+}
+
+.active {
+    background-color: #dbe7f3;
+}
+
+.contact-item:hover {
+    background-color: #e9eff5;
+}
+
+.icon-contact-list {
+    position: absolute;
+    color: rgb(41, 207, 41);
+    font-size: 1.1rem;
+    left: 2rem;
+    top: 3rem;
+}
+
+.container-contact-list {
+    margin-top: 20vh;
+}
+
+.contact-list-title {
+    font-weight: 400;
+    color: rgb(60, 163, 248);
+    padding-top: 20px;
+    padding-left: 20px;
+
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;
+    border-bottom: 2px solid rgb(238, 232, 232);
+    padding: 0 20px 0 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact {
+    display: flex;
+}
+
+.name-contact {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.preview-message {
+    color: gray;
+    margin-top: 5px;
+}
+
+.contact-list-date {
+    height: 5px;
+    font-size: .8rem;
+    display: flex;
+    margin-top: 25px;
+    color: #333;
+}
+
+
+@media screen and (max-height: 700px) {
+    .container-contact-list {
+        overflow: scroll;
+        height: 100%;
+    }
 }

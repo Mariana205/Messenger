@@ -1,13 +1,16 @@
 .contact-container {
+    width: 100%;
+    position: fixed;
     height: 10vh;
-    max-width: 100%;
     display: flex;
-    /* box-shadow: 0px 2px 8px gray; */
     border-bottom: 2px solid rgb(238, 232, 232);
     background-color: rgb(243, 243, 243);
     padding: 0 20px;
-    display: flex;
     align-items: center;
+}
+
+.contact-item-photo {
+    position: relative;
 }
 
 .contact-name {
@@ -16,19 +19,17 @@
     font-size: 1.5rem;
     font-weight: 500;
     padding-left: 10px;
-    position: relative;
 }
 
 .photo {
     margin-top: 0;
-    position: relative;
 }
 
-.bi.bi-check-circle {
+.icon-contact {
     position: absolute;
     color: rgb(41, 207, 41);
-    height: 100%;
     font-size: 1.1rem;
-    padding: 20px 0 0 30px;
+    display: flex;
+    right: 0;
+    bottom: 0;
 }
-

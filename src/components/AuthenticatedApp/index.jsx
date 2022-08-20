@@ -1,22 +1,16 @@
-import { MessageInput } from '../MessageInput';
-import { MessageList } from '../MessageList';
-import { Contact } from '../Contact';
-import { ContactList } from '../ContactList'
-import { Users } from '../../users'
-import './styles.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { MainPage } from '../MainPage';
+
 
 function AuthenticatedApp() {
     return (
-        <div className='wrapper-messages-page'>
-            <div className='left-container'>
-                <ContactList data={Users}/>
-            </div>
-            <div className="messages-container" >
-                <Contact />
-                <MessageList />
-                <MessageInput />
-            </div>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/user/:id" element={<MainPage />} />
+
+            </Routes>
+        </BrowserRouter>
     );
 }
 

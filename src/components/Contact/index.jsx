@@ -1,13 +1,15 @@
 import React from 'react';
 import './styles.css';
 
-function Contact() {
+
+function Contact({ user }) {
     return (
         <div className="contact-container">
-            <div className='photo-contact photo'>
-                <i class="bi bi-check-circle"/>
+            <div className='contact-item-photo'>
+                <img className='photo-contact photo' src={user.photo} alt={user.name} />
+                <i className="bi bi-check-circle icon-contact" />
             </div>
-            <h3 className='contact-name'>Кутась</h3>
+            <h3 className='contact-name'>{user.name}</h3>
         </div>
     );
 }

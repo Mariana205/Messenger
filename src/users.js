@@ -11,11 +11,16 @@ export const Users = [{
     {
         'id': 3,
         'name': 'Velazquez',
-        'photo': 'https://cdn.pixabay.com/photo/2014/07/09/10/04/man-388104_1280.jpg'
+        'photo': 'https://www.essence.com/wp-content/uploads/2010/09/images/2010/09/523161-michael_jai_white_42.jpg'
     },
     {
         'id': 4,
         'name': 'Barrera',
         'photo': 'https://www.talentedladiesclub.com/site/wp-content/uploads/sylvia.jpg'
+    },
+    {
+        'id': 5,
+        'name': 'Kutasya',
+        'photo': 'https://i.postimg.cc/Kcb5scnL/photo-2022-08-18-12-13-44.jpg'
     }
 ]

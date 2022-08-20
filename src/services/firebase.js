@@ -20,14 +20,14 @@ const firebaseConfig = {
     messagingSenderId: "386834534132",
     appId: "1:386834534132:web:d2ac28838ba94bb53998a1",
     measurementId: "G-X4MBPW7Z1D"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-function getTimestampInSeconds () {
+function getTimestampInSeconds() {
     return Math.floor(Date.now() / 1000)
-  }
+}
 
 async function sendMessage(text) {
     try {

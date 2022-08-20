@@ -29,7 +29,7 @@ function MessageInput() {
                     minLength={1}
                 />
                 <button type="submit" disabled={value.length < 1} className="send-message">
-                    <i class="bi bi-send"/>
+                    <i className="bi bi-send"/>
                 </button>
             </form>
         </div>
