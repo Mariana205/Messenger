@@ -2,6 +2,8 @@ import {
     initializeApp
 } from 'firebase/app';
 
+import { getAuth, setPersistence, signInWithPopup, browserLocalPersistence, GoogleAuthProvider, signOut } from "firebase/auth";
+
 import {
     getFirestore,
     collection,
@@ -86,9 +88,46 @@ function getLastMessage(id, callback) {
     );
 }
 
+function onAuthChanged(callback) {
+    const auth = getAuth();
+
+    auth.onAuthStateChanged(user => {
+        callback(user)
+    })
+}
+
+
+async function loginWithGoogle() {
+    try {
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth();
+
+        await setPersistence(auth, browserLocalPersistence);
+        await signInWithPopup(auth, provider);
+
+    } catch (error) {
+        if (error.code !== 'auth/cancelled-popup-request') {
+            console.error(error);
+        }
+        return null;
+    }
+}
+
+async function signOutGoogle() {
+    try {
+        const auth = getAuth();
+        signOut(auth);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
 export {
     sendMessage,
     getMessages,
-    getLastMessage
+    getLastMessage,
+    onAuthChanged,
+    loginWithGoogle,
+    signOutGoogle
 };

@@ -39,7 +39,7 @@
 }
 
 .photo-contact {
-    min-width: 40px;
+    width: 40px;
     height: 40px;
     background-size: cover;
     border-radius: 50%;

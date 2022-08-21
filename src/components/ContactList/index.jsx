@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Users } from '../../users';
 import dateFormat from "dateformat";
 import { useLastMessage } from '../../hooks/useLastMessage';
+import { useAuth } from '../../hooks/useAuth'
+import {signOutGoogle} from '../../services/firebase'
 
 import './styles.css';
 
@@ -12,6 +14,8 @@ const Subscribe = (id) => useLastMessage(id);
 
 function ContactList({ user }) {
     const [contactUsers, setContactUsers] = useState(Users);
+
+    const authUser = useAuth();
 
     const items = Users.map(user => Subscribe(user.id));
 
@@ -36,14 +40,15 @@ function ContactList({ user }) {
         });
 
 
-    // const dateFormatted = dateFormat(contactUsers.name, "m/d/yy, h:MM TT");
-
     return (
         <>
             <div className='search-container'>
                 <div className='contact-item-photo'>
-                    <i className="bi bi-person-circle" />
+                    {/* <i className="bi bi-person-circle" /> */}
+                    <img src={authUser.photoURL} alt="" className='photo-contact photo-user' />
                     <i className="bi bi-check-circle user-icon" />
+                    <span className='name-auth-user'>{authUser.displayName}</span>
+                    <span onClick={signOutGoogle} className='sing-out'>Sign out</span>
                 </div>
                 <div className='container-form'>
                     <div className="form">
