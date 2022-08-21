@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 
 import './styles.css';
 
-function MainPage() {
+function ChatPage() {
     const params = useParams();
 
     const user = Users.find((x) => x.id.toString() === params.id);
@@ -35,4 +35,4 @@ function MainPage() {
     );
 }
 
-export { MainPage };
+export { ChatPage };

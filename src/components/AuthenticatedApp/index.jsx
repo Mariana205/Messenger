@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { MainPage } from '../MainPage';
+import { ChatPage } from '../ChatPage';
 
 
 function AuthenticatedApp() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/user/:id" element={<MainPage />} />
+                <Route path="/" element={<ChatPage />} />
+                <Route path="/user/:id" element={<ChatPage />} />
 
             </Routes>
         </BrowserRouter>

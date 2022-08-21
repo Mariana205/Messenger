@@ -12,6 +12,9 @@ import {
     orderBy,
 } from 'firebase/firestore';
 
+const basePath = 'chat-users'
+const messagesPath = 'messages'
+
 const firebaseConfig = {
     apiKey: "AIzaSyDXKySSCt-5m8rOwPBBftpgqYzZYnM0CKc",
     authDomain: "olegia.firebaseapp.com",
@@ -32,7 +35,7 @@ function getTimestampInSeconds() {
 async function sendMessage(text, id, from) {
     try {
         const timestamp = getTimestampInSeconds();
-        await addDoc(collection(db, 'a-chat-rooms', id.toString(), 'messages'), {
+        await addDoc(collection(db, basePath, id.toString(), messagesPath), {
             text: text.trim(),
             timestamp: timestamp,
             from: from
@@ -45,7 +48,7 @@ async function sendMessage(text, id, from) {
 function getMessages(id, callback) {
     return onSnapshot(
         query(
-            collection(db, 'a-chat-rooms', id.toString(), 'messages'),
+            collection(db, basePath, id.toString(), messagesPath),
             orderBy('timestamp', 'asc')
         ),
         (querySnapshot) => {
@@ -62,14 +65,13 @@ function getMessages(id, callback) {
 function getLastMessage(id, callback) {
     return onSnapshot(
         query(
-            collection(db, 'a-chat-rooms', id.toString(), 'messages'),
+            collection(db, basePath, id.toString(), messagesPath),
             orderBy('timestamp', 'desc'),
             limit(1)
         ),
         (querySnapshot) => {
             const doc = querySnapshot.docs[0];
-            if (!doc) 
-            {
+            if (!doc) {
                 return;
             }
 
