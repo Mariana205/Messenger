@@ -35,7 +35,7 @@ function MessageInput({ user }) {
             const randomJoke = await getRandomJoke();
             sendMessage(randomJoke, user.id, user.name);
             notify(randomJoke);
-        }, 1000);
+        }, 10000);
     };
 
     const Notification = ({ title, text }) => (
