@@ -38,33 +38,27 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Messenger
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
+### Основні завдання:
+- [x] Вигляд сторінки чату має бути максимально наближеним до наступної картинки!
+- [x] При старті аплікації у користувача чату вже має бути статичний список
+контактів, а також історія спілкування з деякими користувачами.
+- [x] При виборі контакту зі списку контактів автоматично відображається історія
+спілкування між користувачами. Кожне повідомлення чату повинно мати
+наступні атрибути - текст повідомлення, час та дату відправлення.
+- [x] Вибравши співрозмовника користувач має можливість написати повідомлення в
+чат і після надсилання він має отримати автоматичну відповідь через 10-15
+секунд зі сповіщенням. Для генерування автоматичної відповіді потрібно
+використати Chuck Norris API https://api.chucknorris.io/, а саме використати API
+метод який генерує випадкові жарти. Значення “value” і має бути текстом
+автоматичної відповіді в чаті.
+- [x] Реалізувати пошук серед контактів. Функціонально пошук має працювати
+подібно як у будь-якому відомому месенджері.
+- [x] Збереження історії меседжів після перезагрузки сторінки.
+- [x] Контакти з новими повідомленнями повинні автоматично переміщатися вгору.
+- [ ] Крім коду обов&#39;язково має бути лінка на задеплоєну аплікуху - інші варіанти не
+будуть розглядатись.
+- [x] Адаптивний дизайн.
+- [ ] Логін через сторонні провайдери (GMAIL, FB, etc.) - хоча б один із.
