@@ -30,8 +30,6 @@ function Message({ message, isOwnMessage, user }) {
     const date = (new Date(timestamp));
     const dateFormatted = dateFormat(date, "m/d/yy, h:MM TT");
 
-    // mmm d, yyyy
-
     if (!isOwnMessage) {
         return (
             <div className='message-item'>

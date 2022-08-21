@@ -5,7 +5,7 @@ import './styles.css';
 function Contact({ user }) {
     return (
         <div className="contact-container">
-            <div className='contact-item-photo'>
+            <div className='contact-item-photo item-photo'>
                 <img className='photo-contact photo' src={user.photo} alt={user.name} />
                 <i className="bi bi-check-circle icon-contact" />
             </div>

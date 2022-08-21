@@ -6,7 +6,7 @@ import {
     getFirestore,
     collection,
     addDoc,
-    serverTimestamp,
+    limit,
     onSnapshot,
     query,
     orderBy,
@@ -59,8 +59,34 @@ function getMessages(id, callback) {
     );
 }
 
+function getLastMessage(id, callback) {
+    return onSnapshot(
+        query(
+            collection(db, 'a-chat-rooms', id.toString(), 'messages'),
+            orderBy('timestamp', 'desc'),
+            limit(1)
+        ),
+        (querySnapshot) => {
+            const doc = querySnapshot.docs[0];
+            if (!doc) 
+            {
+                return;
+            }
+
+            const message = {
+                id: doc.id,
+                userId: id,
+                ...doc.data(),
+            }
+
+            callback(message);
+        }
+    );
+}
+
 
 export {
     sendMessage,
-    getMessages
+    getMessages,
+    getLastMessage
 };

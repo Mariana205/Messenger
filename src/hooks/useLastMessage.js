@@ -1,11 +1,11 @@
 import React from 'react';
-import { getMessages } from '../services/firebase';
+import { getLastMessage } from '../services/firebase';
 
-function useMessages(id) {
+function useLastMessage(id) {
     const [messages, setMessages] = React.useState([]);
 
     React.useEffect(() => {
-        const unsubscribe = getMessages(id, setMessages);
+        const unsubscribe = getLastMessage(id, setMessages);
 
         return unsubscribe;
     }, [id]);
@@ -13,5 +13,4 @@ function useMessages(id) {
     return messages;
 }
 
-
-export { useMessages };
+export { useLastMessage };

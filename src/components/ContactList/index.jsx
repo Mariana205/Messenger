@@ -1,11 +1,19 @@
 import React from 'react';
-import './styles.css';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Users } from '../../users';
-import { Link } from 'react-router-dom';
+import dateFormat from "dateformat";
+import { useLastMessage } from '../../hooks/useLastMessage';
+
+import './styles.css';
+
+const Subscribe = (id) => useLastMessage(id);
+
 
 function ContactList({ user }) {
     const [contactUsers, setContactUsers] = useState(Users);
+
+    const items = Users.map(user => Subscribe(user.id));
 
     const filter = (e) => {
         const keyword = e.target.value;
@@ -16,6 +24,19 @@ function ContactList({ user }) {
         setContactUsers(results);
     };
 
+    contactUsers
+        .map(user => {
+            const item = items.find(i => i.userId === user.id);
+            if (item) {
+                user['message'] = item.text;
+                user['timestamp'] = item.timestamp;
+            }
+
+            return user;
+        });
+
+
+    // const dateFormatted = dateFormat(contactUsers.name, "m/d/yy, h:MM TT");
 
     return (
         <>
@@ -36,23 +57,25 @@ function ContactList({ user }) {
                 <h3 className='contact-list-title'>Chats</h3>
                 <ul className='contact-list'>
                     {contactUsers.length > 0 ? (
-                        contactUsers.map((item) => (
-                            <li className={['contact', item.id === user?.id && 'active'].join(' ')} key={item.id}>
-                                <Link to={`/user/${item.id}`} style={{ textDecoration: 'none' }} className="contact-item">
-                                    <div className='contact'>
-                                        <div className='contact-item-photo'>
-                                            <img className='photo-contact' src={item.photo} alt={item.name}/>
-                                            <i className="bi bi-check-circle icon-contact-list" />
+                        contactUsers
+                            .sort((a, b) => a.timestamp < b.timestamp ? 1 : -1)
+                            .map((item) => (
+                                <li className={['contact', item.id === user?.id && 'active'].join(' ')} key={item.id}>
+                                    <Link to={`/user/${item.id}`} style={{ textDecoration: 'none' }} className="contact-item">
+                                        <div className='contact'>
+                                            <div className='contact-item-photo'>
+                                                <img className='photo-contact' src={item.photo} alt={item.name} />
+                                                <i className="bi bi-check-circle icon-contact-list" />
+                                            </div>
+                                            <div>
+                                                <h4 className='name-contact'>{item.name}</h4>
+                                                <p className='preview-message'>{item.message}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className='name-contact'>{item.name}</h4>
-                                            <p className='preview-message'>Як справи?</p>
-                                        </div>
-                                    </div>
-                                    <div className='contact-list-date'>Mar 19, 2022</div>
-                                </Link>
-                            </li>
-                        ))
+                                        <div className='contact-list-date'>{dateFormat(item.timestamp, 'mmm d, yyyy')}</div>
+                                    </Link>
+                                </li>
+                            ))
 
                     ) : (
                         <p className='no-contact'>No contacts</p>
